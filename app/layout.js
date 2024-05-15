@@ -1,3 +1,4 @@
+import MainNavigation from "@/components/mainNavigation";
 import "./globals.css";
 
 export const metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
             ></path>
           </svg>
         </div>
-
+        <MainNavigation />
         {children}
       </body>
     </html>
