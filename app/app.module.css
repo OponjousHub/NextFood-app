@@ -1,14 +1,15 @@
 .header {
   display: flex;
-  gap: 3rem;
-  justify-content: space-between;
+  gap: 5rem;
+  align-items: center;
+  /* justify-content: space-between; */
   margin: 6rem auto;
   width: 60%;
+  max-width: 105rem;
 }
-.slideshow {
+.slideShow {
   width: 50%;
-  height: 25rem;
-  background-color: aquamarine;
+  height: 30rem;
 }
 .hero {
   width: 50%;
