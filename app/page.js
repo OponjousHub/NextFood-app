@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SlideShow from "@/components/slideShow";
 import classes from "./app.module.css";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
     <>
       <header className={classes.header}>
         <div className={classes.slideShow}>
-          <p>this space for slide show</p>
+          <SlideShow />
         </div>
         <div className={classes.hero}>
           <div>
