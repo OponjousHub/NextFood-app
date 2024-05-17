@@ -2,9 +2,14 @@ import Link from "next/link";
 import MealGrid from "../../components/meals/mealgrid";
 import { getMeals } from "@/lib/meals";
 import classes from "./meal_page.module.css";
+import { Suspense } from "react";
+
+async function FetchingMeals() {
+  const meals = await getMeals();
+  return <MealGrid meals={meals} />;
+}
 
 async function meals() {
-  const meals = await getMeals();
   return (
     <>
       <header className={classes.header}>
@@ -22,7 +27,11 @@ async function meals() {
         </div>
       </header>
       <main className={classes.meal_section}>
-        <MealGrid meals={meals} />
+        <Suspense
+          fallback={<p className={classes.loading}>Fetching meals...</p>}
+        >
+          <FetchingMeals />
+        </Suspense>
       </main>
     </>
   );
