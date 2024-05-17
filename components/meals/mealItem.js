@@ -1,20 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
 import classes from "./mealItem.module.css";
 
-export default function MealItem({ slug, summery, title, image, creator }) {
+export default function MealItem({ slug, summary, title, image, creator }) {
   return (
-    <article>
-      <header className={classes.header}>
-        <Image src={image} alt={title} fill />
+    <article className={classes.meal_item}>
+      <header>
+        <div className={classes.image}>
+          <Image src={image} alt={title} fill />
+        </div>
         <div className={classes.header_text}>
           <h2>{title}</h2>
           <p> By {creator}</p>
         </div>
-        <div className={classes.content}>
-          <p className={classes.summery}>{summery}</p>
-          <Link href={`/meals${slug}`} className={classes.slug_action}></Link>
-        </div>
       </header>
+      <div className={classes.content}>
+        <p className={classes.summary}>{summary}</p>
+        <div className={classes.actions}>
+          {" "}
+          <Link href={`/meals/${slug}`} className={classes.slug_action}>
+            View Details
+          </Link>
+        </div>
+      </div>
     </article>
   );
 }
