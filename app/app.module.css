@@ -54,6 +54,7 @@
 .cta a:hover,
 .cta a:active {
   background: linear-gradient(90deg, #f9b241, #fd4715);
+  transition: all 1s;
 }
 
 .cta a:first-child {

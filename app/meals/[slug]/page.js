@@ -1,22 +1,32 @@
-import classes from "./mealSlug.module.css";
+import { getMeal } from "@/lib/meals";
+import meals from "../page";
+import classes from "./slugPage.module.css";
 import Image from "next/image";
 
-function DisplayMealPage() {
+function DisplayMealPage({ params }) {
+  const slug = params.slug;
+  const meal = getMeal(slug);
+  meal.instructions = meal.instructions.replace(/\n/g, "<br />");
   return (
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image fill />
-          <div className={classes.header_text}>
-            <h1>Title</h1>
-            <p className={classes.creator}>
-              By <a href={`mailto:${"EMAIL"}`}>NAME</a>
-            </p>
-            <p>SUMMARY</p>
-          </div>
+          <Image src={meal.image} fill />
+        </div>
+        <div className={classes.header_text}>
+          <h1>{meal.title}</h1>
+          <p className={classes.creator}>
+            By <a href={`mailto:${"EMAIL"}`}>{meal.creator}</a>
+          </p>
+          <p className={classes.summary}>{meal.summary}</p>
         </div>
       </header>
-      <main></main>
+      <main>
+        <p
+          className={classes.instructions}
+          dangerouslySetInnerHTML={{ __html: meal.instructions }}
+        ></p>
+      </main>
     </>
   );
 }
