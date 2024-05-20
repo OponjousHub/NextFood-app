@@ -1,7 +1,7 @@
-import Link from "next/link";
+import ImagePicker from "@/components/meals/image-picker";
 import classes from "./page.module.css";
 
-function Mealss() {
+function Meals() {
   return (
     <div className={classes.form_container}>
       <header className={classes.header}>
@@ -39,7 +39,9 @@ function Mealss() {
               rows={7}
             ></textarea>
           </p>
-          <p className={classes.picker}>Image Picker</p>
+          <div className={classes.picker}>
+            <ImagePicker name="image" />
+          </div>
           <button className={classes.shear}>Shear meal</button>
         </form>
       </main>
@@ -47,4 +49,4 @@ function Mealss() {
   );
 }
 
-export default Mealss;
+export default Meals;
