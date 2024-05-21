@@ -1,13 +1,19 @@
 "use server";
+
+import { saveMeal } from "@/lib/meals";
+import { redirect } from "next/navigation";
+
 export const GetMealData = async (formData) => {
   const mealData = {
-    name: formData.get("name"),
-    email: formData.get("email"),
+    creator: formData.get("name"),
+    creator_email: formData.get("email"),
     title: formData.get("title"),
+    // creator: formData.get('creator'),
     summary: formData.get("summary"),
-    instuction: formData.get("instuction"),
+    instructions: formData.get("instructions"),
     image: formData.get("image"),
   };
 
-  console.log(mealData);
+  await saveMeal(mealData);
+  redirect("/meals");
 };

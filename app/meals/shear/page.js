@@ -36,7 +36,7 @@ function Meals() {
             <textarea
               type="text"
               id="instuction"
-              name="instuction"
+              name="instructions"
               rows={7}
             ></textarea>
           </p>
