@@ -30,7 +30,7 @@ export default function ImagePicker({ name, label }) {
   };
   return (
     <div className={classes.picker}>
-      {/* <label htmlFor={name}>Label</label> */}
+      <label htmlFor={name}>{label}</label>
       <div className={classes.controls}>
         <div className={classes.preview}>
           {!clickImagePick && <p>No image selected</p>}

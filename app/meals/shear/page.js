@@ -1,5 +1,6 @@
 import ImagePicker from "@/components/meals/image-picker";
 import { GetMealData } from "@/components/meals/action";
+import { FormSubmitButton } from "@/components/meals/form-submit-button";
 import classes from "./page.module.css";
 
 function Meals() {
@@ -16,7 +17,7 @@ function Meals() {
           <div className={`${classes.rows}, ${classes.name_email}`}>
             <p>
               <label htmlFor="name">your name</label>
-              <input type="text" id="name" name="name" />
+              <input type="text" id="name" name="names" />
             </p>
             <p>
               <label htmlFor="email">your email</label>
@@ -43,7 +44,7 @@ function Meals() {
           <div className={classes.picker}>
             <ImagePicker name="image" label="Pick Your Image" />
           </div>
-          <button className={classes.shear}>Shear meal</button>
+          <FormSubmitButton />
         </form>
       </main>
     </div>

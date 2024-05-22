@@ -1,0 +1,16 @@
+.shear {
+  border: none;
+
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  /* margin-top: 1.6rem; */
+  padding: 9px 18px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 2rem;
+
+  position: absolute;
+  right: 40%;
+  bottom: 15px;
+  cursor: pointer;
+}
