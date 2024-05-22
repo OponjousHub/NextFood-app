@@ -3,7 +3,10 @@
 import { saveMeal } from "@/lib/meals";
 import { redirect } from "next/navigation";
 
-export const GetMealData = async (formData) => {
+export const GetMealData = async (prevState, formData) => {
+  const isInvalidInput = (text) => {
+    return !text || text.trim() === "";
+  };
   const mealData = {
     title: formData.get("title"),
     summary: formData.get("summary"),
@@ -14,6 +17,18 @@ export const GetMealData = async (formData) => {
     // creator: formData.get('creator'),
   };
 
+  if (
+    isInvalidInput(mealData.title) ||
+    isInvalidInput(mealData.summary) ||
+    isInvalidInput(mealData.instructions) ||
+    isInvalidInput(mealData.creator) ||
+    isInvalidInput(mealData.creator_email) ||
+    !mealData.creator_email.includes("@") ||
+    !mealData.image ||
+    mealData.image.size === 0
+  ) {
+    return { message: "Please fill all inputs" };
+  }
   await saveMeal(mealData);
   redirect("/meals");
 };
