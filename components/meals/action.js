@@ -1,6 +1,7 @@
 "use server";
 
 import { saveMeal } from "@/lib/meals";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const GetMealData = async (prevState, formData) => {
@@ -30,5 +31,6 @@ export const GetMealData = async (prevState, formData) => {
     return { message: "Please fill all inputs" };
   }
   await saveMeal(mealData);
+  revalidatePath("/meals");
   redirect("/meals");
 };

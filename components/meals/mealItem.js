@@ -7,7 +7,11 @@ export default function MealItem({ slug, summary, title, image, creator }) {
     <article className={classes.meal_item}>
       <header>
         <div className={classes.image}>
-          <Image src={image} alt={title} fill />
+          <Image
+            src={`https://oponjous-nest-image-bucket.s3.eu-north-1.amazonaws.com/${image}`}
+            alt={title}
+            fill
+          />
         </div>
         <div className={classes.header_text}>
           <h2>{title}</h2>

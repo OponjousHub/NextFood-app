@@ -11,7 +11,11 @@ function DisplayMealPage({ params }) {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image src={meal.image} fill />
+          <Image
+            src={`https://oponjous-nest-image-bucket.s3.eu-north-1.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
+          />
         </div>
         <div className={classes.header_text}>
           <h1>{meal.title}</h1>
