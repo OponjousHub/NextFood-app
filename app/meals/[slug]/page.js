@@ -3,9 +3,23 @@ import meals from "../page";
 import classes from "./slugPage.module.css";
 import Image from "next/image";
 
+export async function generateMetadata({ params }) {
+  const meal = getMeal(params.slug);
+
+  if (!meal) notFound();
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 function DisplayMealPage({ params }) {
   const slug = params.slug;
   const meal = getMeal(slug);
+
+  if (!meal) notFound();
+
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
   return (
     <>

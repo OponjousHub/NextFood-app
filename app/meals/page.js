@@ -4,6 +4,11 @@ import { getMeals } from "@/lib/meals";
 import classes from "./meal_page.module.css";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Oponjous NextLevel Food",
+  description: "Delicious meal, Delivered to your to door.",
+};
+
 async function FetchingMeals() {
   const meals = await getMeals();
   return <MealGrid meals={meals} />;

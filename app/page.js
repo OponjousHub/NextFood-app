@@ -2,6 +2,8 @@ import Link from "next/link";
 import SlideShow from "@/components/slideShow";
 import classes from "./app.module.css";
 
+
+
 export default function Home() {
   return (
     <>
